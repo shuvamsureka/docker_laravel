@@ -17,9 +17,9 @@ services:
     volumes:
       - ./laravelProject.conf:/etc/nginx/conf.d/laravelProject.conf
   laravel:
-    image: shuvamsureka/mylara:1.1
+    image: shuvamsureka/docker_laravel:1.0
     volumes:
-      - /var/www/html/docker_practice/mylaravel:/var/www/html/mylaravel
+      - /var/www/html/docker_laravel/mylaravel:/var/www/html/mylaravel
       
 volumes:
   mysqldb:      
