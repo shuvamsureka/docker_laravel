@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=laradb
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    volumes:
+      - mysqldb:/var/lib/mysql
+  web:
+    image: nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ./laravelProject.conf:/etc/nginx/conf.d/laravelProject.conf
+  laravel:
+    image: shuvamsureka/mylara:1.1
+    volumes:
+      - /var/www/html/docker_practice/mylaravel:/var/www/html/mylaravel
+      
+volumes:
+  mysqldb:      
